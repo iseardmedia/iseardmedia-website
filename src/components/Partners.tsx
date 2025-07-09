@@ -4,7 +4,7 @@ import logoMuzee from '@/images/logos/muzee.svg'
 import logoDeRegentes from '@/images/logos/deregentes.svg'
 import logoEarthCalling from '@/images/logos/earthcalling.svg'
 import logoBDH from '@/images/logos/bdh.png'
-import logoTrias from '@/images/logos/trias.png'
+import logoMacmillan from '@/images/logos/macmillaneducation.svg'
 import { useTranslations } from 'next-intl'
 import { Paragraph } from './Text'
 
@@ -44,15 +44,15 @@ export function Partners() {
             className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
           />
           <Image
-            alt="Bibliotheek Den Haag"
-            src={logoBDH}
+            alt="Macmillan Education logo"
+            src={logoMacmillan}
             width={158}
             height={48}
             className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
           />
           <Image
-            alt="Stichting Trias"
-            src={logoTrias}
+            alt="Bibliotheek Den Haag"
+            src={logoBDH}
             width={158}
             height={48}
             className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
