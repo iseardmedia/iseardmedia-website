@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
+    "start": "npx serve@14 out",
     "lint": "next lint",
     "postinstall": "npm rebuild sharp"
   },
@@ -35,6 +35,7 @@
     "typescript": "^6.0.2"
   },
   "devDependencies": {
+    "@netlify/functions": "^6.1.1",
     "@types/nodemailer": "^6.4.17",
     "eslint": "^9.0.0",
     "eslint-config-next": "15.3.0",

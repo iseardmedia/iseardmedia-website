@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
-export async function generateAppMetadata(): Promise<Metadata> {
-  const locale = await getLocale()
+export async function generateAppMetadata(locale: string): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'meta' })
-  console.log(locale)
 
   return {
     metadataBase: new URL(
