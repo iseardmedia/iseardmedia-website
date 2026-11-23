@@ -4,10 +4,7 @@ import clsx from 'clsx'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import '@/styles/tailwind.css'
-import { generateAppMetadata } from '@/utils/metadata'
 import React from 'react'
-
-export const generateMetadata = generateAppMetadata
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -24,7 +21,7 @@ export default async function BaseLayout({
 }) {
   // Providing all messages to the client
   // side is the easiest way to get started
-  const messages = await getMessages()
+  const messages = await getMessages({ locale })
 
   return (
     <html
@@ -36,7 +33,7 @@ export default async function BaseLayout({
     >
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID as string} />
       <body className="flex h-full flex-col">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
       </body>

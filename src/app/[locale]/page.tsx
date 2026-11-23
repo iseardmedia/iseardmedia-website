@@ -6,8 +6,17 @@ import { Partners } from '@/components/Partners'
 import { Projects } from '@/components/Projects'
 import { Services } from '@/components/Services'
 import Contact from '@/components/Contact'
+import { setRequestLocale } from 'next-intl/server'
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  // Enable static rendering for next-intl
+  setRequestLocale(locale)
+
   return (
     <div className="selection:bg-primary selection:text-white">
       <Header />

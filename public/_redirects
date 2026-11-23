@@ -1,0 +1,26 @@
+# Bot / vulnerability-scanner paths: answer 404 at the CDN.
+# `!` forces the rule even if a file exists at that path.
+/wp-admin           /404.html  404!
+/wp-admin/*         /404.html  404!
+/wp-content/*       /404.html  404!
+/wp-includes/*      /404.html  404!
+/wp-json/*          /404.html  404!
+/wp-login.php       /404.html  404!
+/wp-config.php      /404.html  404!
+/wordpress/*        /404.html  404!
+/wp/*               /404.html  404!
+/xmlrpc.php         /404.html  404!
+/.env               /404.html  404!
+/.env.local         /404.html  404!
+/.env.production    /404.html  404!
+/.git/*             /404.html  404!
+/.aws/*             /404.html  404!
+/phpmyadmin/*       /404.html  404!
+/cgi-bin/*          /404.html  404!
+/vendor/*           /404.html  404!
+/config.json        /404.html  404!
+
+# Locale detection for the root URL (replaces the next-intl middleware).
+# Dutch-speaking browsers go to /nl, everyone else to /en.
+/   /nl   302!  Language=nl
+/   /en   302!
