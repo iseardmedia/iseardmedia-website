@@ -33,7 +33,10 @@ export default async (request: Request, context: Context) => {
     const verifyFormData = new FormData()
     verifyFormData.append('secret', String(process.env.TURNSTILE_SECRET_KEY))
     verifyFormData.append('response', token)
-    if (context.ip) verifyFormData.append('remoteip', context.ip)
+    // The site is proxied through Cloudflare, so Netlify's `context.ip` is a
+    // Cloudflare edge address. Prefer the real visitor IP Cloudflare forwards.
+    const ip = request.headers.get('cf-connecting-ip') || context.ip
+    if (ip) verifyFormData.append('remoteip', ip)
 
     const verify = await fetch(
       'https://challenges.cloudflare.com/turnstile/v0/siteverify',
