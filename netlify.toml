@@ -1,0 +1,10 @@
+# Static export: Next.js writes the site to `out/`, served directly from
+# Netlify's CDN. The only function is the contact form handler.
+# Redirect and 404 rules live in public/_redirects (copied into out/).
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
